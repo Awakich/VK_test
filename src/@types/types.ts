@@ -16,3 +16,19 @@ interface User {
     "first_name": string,
     "last_name": string
 }
+
+type selectFilter = {
+    "closed": {
+        "text": string
+        "value": boolean | null
+    },
+
+    "avatarColor": {
+        "value": string | null
+        "text": string
+    },
+}
+
+type checkBox = {
+    isClicked: boolean
+}
