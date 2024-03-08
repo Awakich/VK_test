@@ -6,15 +6,15 @@ import { selectFilterAvatarColorSelector, selectFilterClosedSelector } from '@/f
 import Group from '@/entities/Group'
 
 const GroupsList: FC = () => {
-    const { data: groups, error: isError } = useGroups()
-    const { value: avatarColorsValue } = useAppSelector(selectFilterAvatarColorSelector)
-    const { value: closedValue } = useAppSelector(selectFilterClosedSelector)
-    const { isClicked } = useAppSelector(checkBoxSelector)
+    const { data: groups, error: isError } = useGroups() // Получаем данные о группах
+    const { value: avatarColorsValue } = useAppSelector(selectFilterAvatarColorSelector) // состояние фильтра аватарки
+    const { value: closedValue } = useAppSelector(selectFilterClosedSelector) // состояние приватности
+    const { isClicked } = useAppSelector(checkBoxSelector) // состояние статуса друзей
 
     const filterByClosed = (group: Group) => closedValue === null ? group : group.closed !== closedValue
     const filterByAvatarColor = (group: Group) => avatarColorsValue === null ? group : group.avatar_color === avatarColorsValue
     const filterByFriends = (group: Group) => isClicked ? !!group.friends : group;
-    const filterCombined = groups.filter(filterByClosed).filter(filterByAvatarColor).filter(filterByFriends)
+    const filterCombined = groups.filter(filterByClosed).filter(filterByAvatarColor).filter(filterByFriends) // Объединение фильтров для доп условия
 
     if (!groups) return <p> Loading...</p>
     if (!!isError) return <p>Error</p>

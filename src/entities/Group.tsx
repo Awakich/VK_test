@@ -7,7 +7,7 @@ import FriendsList from '@/widget/FriendsList'
 const Group: FC<Group> = ({ id, closed, members_count, name, avatar_color, friends }) => {
     const [activeGroup, setActiveGroup] = useState<number | null>(null)
 
-    const changeClickedHandler = (id: number) => id === activeGroup ? setActiveGroup(null) : setActiveGroup(id)
+    const changeClickedHandler = (id: number) => id === activeGroup ? setActiveGroup(null) : setActiveGroup(id) // Обращаемся к определенному элементу по его id и сравнием с текущим если такой есть
 
     return (
         <Card>

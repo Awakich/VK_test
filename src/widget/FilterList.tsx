@@ -8,7 +8,7 @@ import FilterClosed from '@/entities/FilterClosed'
 const FilterList: FC = () => {
     const dispatch = useAppDispatch()
     const { isClicked } = useAppSelector(checkBoxSelector)
-    const changeClick = useCallback(() => dispatch(setClick({ isClicked: !isClicked })), [isClicked])
+    const changeClick = useCallback(() => dispatch(setClick({ isClicked: !isClicked })), [isClicked]) // сохраняем функцию если использовалась раннее
 
     return (
         <section className='inline-flex flex-col items-start space-y-4 border px-4 py-2 rounded-lg mb-8'>

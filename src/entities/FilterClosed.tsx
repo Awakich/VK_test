@@ -6,13 +6,13 @@ import { FC, useState } from 'react'
 const FilterClosed: FC = () => {
     const [openedClosedList, setOpenedClosedList] = useState(false)
 
-    const { text: closedText, value: closedValue } = useAppSelector(selectFilterClosedSelector)
+    const { text: closedText } = useAppSelector(selectFilterClosedSelector)
     const dispatch = useAppDispatch()
 
     const selectValueClosedHandler = (value: boolean | null, text: string) => {
         dispatch(selectValueClosed({ value, text }))
         setOpenedClosedList(!openedClosedList)
-    }
+    } // При клике выполняем смену приватности и его текста и закрываем всплывающее окно
 
     return (
         <p>Тип приватности:

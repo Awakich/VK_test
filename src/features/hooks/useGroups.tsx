@@ -6,12 +6,12 @@ export const useGroups = () => {
     const [error, setError] = useState()
 
     useEffect(() => {
-        try {
+        try { // отлавливаем ошибки если с бекенда придет ошибка
             const timer = setTimeout(() => {
                 setData(groups)
-            }, 1000);
+            }, 1000); // Делаем искусственную задержку
 
-            return () => clearTimeout(timer)
+            return () => clearTimeout(timer) // Выходим из event loop и очищаем timeout
         } catch (error: any) {
             setError(error)
         }
